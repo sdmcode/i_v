@@ -1,0 +1,4 @@
+// comment lol
+fn test : int (void) {
+    return 6; //2353.22
+}
