@@ -139,11 +139,10 @@ impl REPL {
                     }
 
                     let mut parser = Parser::new(tokens);
-                    match parser.parse() {
-                        ParseResult::Success(expr) => {
-                            println!("we did it?")
-                        },
-                        _ => println!("Something went wrong")
+                    let program = parser.parse();
+
+                    for expr in program.statements {
+                        println!("statement... {:?}", expr);
                     }
                 },
 
@@ -166,14 +165,10 @@ impl REPL {
                     tokens.reverse();
 
                     let mut parser = Parser::new(tokens);
-                    match parser.parse() {
-                        ParseResult::Success(expr) => {
-                            println!("we did it? {:?}", expr);
-                        },
-                        ParseResult::Failed(str) => {
-                            println!("Something went wrong");
-                            println!("{}", str);
-                        }
+                    let program = parser.parse();
+
+                    for expr in program.statements {
+                        println!("statement.. {:?}", expr);
                     }
                 }
             }

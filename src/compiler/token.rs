@@ -108,6 +108,8 @@ pub enum Token {
 
     Error(String),
 
+    Print,
+
 }
 
 impl Default for Token {
@@ -138,7 +140,7 @@ pub fn lookup(ident: &str) -> Token {
         "string" => Token::StringDecl,
         "bool" => Token::BooleanDecl,
         "struct" => Token::StructDecl,
-        ".." => Token::DotDot,
+        "print" => Token::Print,
 
         _ => Token::Identifier(ident.to_string()),
     }
